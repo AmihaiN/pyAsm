@@ -1,0 +1,35 @@
+=======
+PyAsm
+=======
+:info: An inline x86 (64bit pending) assembly module for python! (on windows!)
+:Author: Amihai Neiderman
+
+About
+=====
+The PyAsm is a python library intended for the execution of a native x86 assembly code
+through python code.
+The idea came to me one day when I needed a fast way to locate the address of the PEB(Process Environment Block)
+in a given process using python code.
+Using asm it takes exactly one line of code "mov eax,[fs:30h]" and with ctyes it takes a lot more and require you to
+go through a couple of semi-documented nt APIs :\
+
+Installation
+============
+For now I don't have a real installation...So everything has to be done manually!
+1) Download the lastest NASM assembler from http://www.nasm.us
+2) Place pyAsm.py in your working dir or your >python[version]\lib folder
+3) Open pyAsm.py and edit the NASM__ variable (defualt is NASM__ = r'nasm.exe') to the current location of your nasm.exe assembler
+4) Run python!
+
+Examples
+========
+
+>>> from pyAsm import *
+>>> p = pyAsm(A_32BIT)      #We can alse use A_64BIT and A_16BIT!
+>>> p.update('xor eax,eax') #update the executed code
+>>> p.update('mov eax,1')
+>>> p.update('shl eax,10')
+>>> r = p.run()
+>>> print 'EAX is:',r.Eax
+
+EAX is: 1024
