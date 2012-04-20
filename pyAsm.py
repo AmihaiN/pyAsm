@@ -5,13 +5,15 @@ import struct
 import time
 
 '''
-TODO - use some exceptions!!
 
 '''
-END  = 0
-START  = 1
+
+NASM__ = r'nasm.exe'
+
+END                 = 0
+START               = 1
 THREAD_START_SIGNAL = 0x000000000
-THREAD_FIN_SIGNAL        = 0x000000001
+THREAD_FIN_SIGNAL   = 0x000000001
 
 A_16BIT = 16
 A_32BIT = 32
@@ -62,14 +64,14 @@ class CONTEXT(Structure):
 
 class pyAsm():
 	def __init__(self,Arch):
-		self._NASM = r'Z:\pyAsm\nasm.exe'
+		self._NASM = NASM__
 		self._ASM_STR = '' #The code
 		self._ARCH = Arch
 		
 	def update(self,s,Location = END):
 		if s != None:
 			if Location == START:
-				self._ASM_STR = (s+'\n')	+ self._ASM_STR
+				self._ASM_STR = (s+'\n') + self._ASM_STR
 			elif Location == END:
 				self._ASM_STR += (s+'\n')	
 		
