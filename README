@@ -6,11 +6,9 @@ PyAsm
 
 About
 =====
-The PyAsm is a python library intended for the execution of a native x86 assembly code
-through python code.
-The idea came to me one day when I needed a fast way to locate the address of the PEB(Process Environment Block)
-in a given process using python code.
-Using asm it takes exactly one line of code "mov eax,[fs:30h]" and with ctyes it takes a lot more and require you to
+The PyAsm is a python library intended for the execution of a native x86 assembly code through python code.
+The idea came to me one day when I needed a fast way to locate the address of the PEB(Process Environment Block) in a given process using python code. 
+Using asm it takes exactly one line of code "mov eax,[fs:30h]" and with ctypes it takes a lot more and require you to
 go through a couple of semi-documented nt APIs :\
 
 Installation
